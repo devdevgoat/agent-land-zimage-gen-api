@@ -1,0 +1,34 @@
+# Z-Image Turbo image-generation API. All settings come from .env (see .env.example).
+# You shouldn't need to edit this file.
+#
+#   docker compose up -d --build     # build + start (first start downloads the model into $HF_CACHE_DIR)
+#   docker compose stop              # stop (stays stopped across reboots; the model cache is kept)
+#   docker compose logs -f
+services:
+  image-gen:
+    build:
+      context: .
+      args:
+        PYTORCH_IMAGE: ${PYTORCH_IMAGE:-pytorch/pytorch:2.9.1-cuda12.8-cudnn9-runtime}
+    image: zimage-gen:latest
+    container_name: ${IMAGE_GEN_CONTAINER_NAME:-image-gen}
+    restart: unless-stopped
+    gpus: all
+    ports:
+      - "${IMAGE_GEN_BIND:-0.0.0.0}:${IMAGE_GEN_PORT:-8000}:8000"
+    volumes:
+      - ${HF_CACHE_DIR:-./hf-cache}:/hf-cache   # Hugging Face cache: models download once
+      - ./API.md:/srv/API.md:ro                 # served at GET /usage
+    environment:
+      API_TOKEN: ${API_TOKEN:-}
+      DEFAULT_MODEL: ${DEFAULT_MODEL:-z-image-turbo-bf16-te4}
+      OFFLOAD: ${OFFLOAD:-none}
+      MAX_SIDE: ${MAX_SIDE:-1024}
+      MAX_STEPS: ${MAX_STEPS:-50}
+      JOB_TIMEOUT_SECONDS: ${JOB_TIMEOUT_SECONDS:-120}
+      HANG_GRACE_SECONDS: ${HANG_GRACE_SECONDS:-60}
+      QUEUE_MAX: ${QUEUE_MAX:-8}
+      MAX_IMAGE_MB: ${MAX_IMAGE_MB:-10}
+      LORAS: ${LORAS:-tarn59/pixel_art_style_lora_z_image_turbo}
+      LORA_ALLOWLIST: ${LORA_ALLOWLIST:-}
+      NVIDIA_VISIBLE_DEVICES: ${IMAGE_GEN_GPU:-all}

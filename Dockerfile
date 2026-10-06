@@ -1,4 +1,7 @@
-FROM pytorch/pytorch:2.9.1-cuda12.8-cudnn9-runtime
+# Base image (PyTorch + CUDA). Set PYTORCH_IMAGE in .env: the CUDA version must not be newer than
+# what the host driver supports (`nvidia-smi` -> "CUDA Version"). scripts/configure.py picks it.
+ARG PYTORCH_IMAGE=pytorch/pytorch:2.9.1-cuda12.8-cudnn9-runtime
+FROM ${PYTORCH_IMAGE}
 
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
