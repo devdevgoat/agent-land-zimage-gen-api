@@ -21,7 +21,7 @@ python scripts/token_usage.py ~/.claude/projects/<project>/<session>.jsonl \
 
 | Date | Work | Model | Cost for this repo |
 |---|---|---|---|
-| 2026-10-04 to 2026-10-06 | Initial build: the FastAPI service and queue, model registry, img2img and LoRA support, sprite sheets (expressions, gestures, props, sprite input, pixelation, mood backgrounds), prompt-tuning experiments, the CUDA-fault and hang recovery, and the performance work (quantization and memory modes). Plus half of the shared work on both repos (publishing: licensing, docs, AGENTS.md, this log; then the .env-driven restructure, scripts and BENCHMARKS.md) | `claude-opus-5-5` | **$38.77** |
+| 2026-10-04 to 2026-10-06 | Initial build: the FastAPI service and queue, model registry, img2img and LoRA support, sprite sheets (expressions, gestures, props, sprite input, pixelation, mood backgrounds), prompt-tuning experiments, the CUDA-fault and hang recovery, and the performance work (quantization and memory modes). Plus half of the shared work on both repos (publishing: licensing, docs, AGENTS.md, this log; then the .env-driven restructure, scripts and BENCHMARKS.md) | `claude-opus-5-5` | **$40.35** |
 
 ## Full session breakdown (2026-10-04 to 2026-10-06)
 
@@ -33,10 +33,10 @@ One Claude Code session built both `agent-land-breeze-tts-api` and `agent-land-z
 | breeze-tts | `claude-opus-5-5` | 102 | 226 | 94,202 | 0 | 286,076 | 24,214,483 | $9.02 |
 | breeze-tts (subagent: GGUF port) | `claude-opus-5-5` | 67 | 134 | 14,563 | 184,562 | 0 | 8,860,596 | $2.99 |
 | publishing (both repos) | `claude-opus-5-5` | 40 | 80 | 56,400 | 0 | 122,244 | 26,368,219 | $7.38 |
-| restructure + benchmarks (both repos) | `claude-opus-5-5` | 48 | 96 | 83,471 | 0 | 776,719 | 35,519,027 | $14.99 |
+| restructure + benchmarks (both repos) | `claude-opus-5-5` | 64 | 128 | 101,159 | 0 | 799,878 | 48,607,724 | $18.14 |
 | zimage-gen | `claude-opus-5-5` | 189 | 382 | 208,642 | 0 | 1,252,374 | 67,006,506 | $27.59 |
-| **Total** | | | | | | | | **$63.47** |
+| **Total** | | | | | | | | **$66.63** |
 
-- **This repo:** $27.59 of its own work plus $11.19 (half of the shared work) = **$38.77**.
-- **Whole session:** $63.48.
+- **This repo:** $27.59 of its own work plus $12.76 (half of the shared work) = **$40.35**.
+- **Whole session:** $66.63.
 - **Last few calls:** the figure was taken just before the final commit and push, so those calls aren't included.
