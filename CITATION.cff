@@ -1,0 +1,95 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below, and cite Z-Image (see references)."
+title: "agent-land-zimage-gen-api: a self-hosted Z-Image Turbo API for pixel-art portraits and sprite sheets"
+type: software
+authors:
+  - alias: devdevgoat
+repository-code: "https://github.com/devdevgoat/agent-land-zimage-gen-api"
+license: Apache-2.0
+date-released: "2026-10-06"
+keywords:
+  - image-generation
+  - z-image
+  - diffusers
+  - pixel-art
+  - sprite-sheet
+  - fastapi
+  - docker
+references:
+  - type: article
+    title: "Z-Image: An Efficient Image Generation Foundation Model with Single-Stream Diffusion Transformer"
+    authors:
+      - name: "Z-Image Team"
+    journal: "arXiv preprint arXiv:2511.22699"
+    year: 2025
+    url: "https://arxiv.org/abs/2511.22699"
+  - type: article
+    title: "Decoupled DMD: CFG Augmentation as the Spear, Distribution Matching as the Shield"
+    authors:
+      - family-names: Liu
+        given-names: Dongyang
+      - family-names: Gao
+        given-names: Peng
+      - family-names: Liu
+        given-names: David
+      - family-names: Du
+        given-names: Ruoyi
+      - family-names: Li
+        given-names: Zhen
+      - family-names: Wu
+        given-names: Qilong
+      - family-names: Jin
+        given-names: Xin
+      - family-names: Cao
+        given-names: Sihan
+      - family-names: Zhang
+        given-names: Shifeng
+      - family-names: Li
+        given-names: Hongsheng
+      - family-names: Hoi
+        given-names: Steven
+    journal: "arXiv preprint arXiv:2511.22677"
+    year: 2025
+  - type: article
+    title: "Distribution Matching Distillation Meets Reinforcement Learning"
+    authors:
+      - family-names: Jiang
+        given-names: Dengyang
+      - family-names: Liu
+        given-names: Dongyang
+      - family-names: Wang
+        given-names: Zanyi
+      - family-names: Wu
+        given-names: Qilong
+      - family-names: Jin
+        given-names: Xin
+      - family-names: Liu
+        given-names: David
+      - family-names: Li
+        given-names: Zhen
+      - family-names: Wang
+        given-names: Mengmeng
+      - family-names: Gao
+        given-names: Peng
+      - family-names: Yang
+        given-names: Harry
+    journal: "arXiv preprint arXiv:2511.13649"
+    year: 2025
+  - type: software
+    title: "Z-Image-Turbo-GGUF"
+    authors:
+      - name: unsloth
+    url: "https://huggingface.co/unsloth/Z-Image-Turbo-GGUF"
+    license: Apache-2.0
+  - type: software
+    title: "Pixel Art Style LoRA for Z-Image Turbo"
+    authors:
+      - name: tarn59
+    url: "https://huggingface.co/tarn59/pixel_art_style_lora_z_image_turbo"
+    license: Apache-2.0
+  - type: software
+    title: "Diffusers"
+    authors:
+      - name: "Hugging Face"
+    repository-code: "https://github.com/huggingface/diffusers"
+    license: Apache-2.0

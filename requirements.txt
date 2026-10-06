@@ -1,0 +1,12 @@
+# torch 2.9.1 + CUDA 12.8 come from the base image
+diffusers==0.40.0
+transformers>=5
+accelerate>=1.2
+peft>=0.17
+gguf>=0.10
+bitsandbytes>=0.45
+huggingface_hub>=1.23
+safetensors
+fastapi>=0.115
+uvicorn[standard]>=0.30
+pillow>=10

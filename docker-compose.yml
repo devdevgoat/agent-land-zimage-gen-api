@@ -1,0 +1,25 @@
+# Image generation API (Z-Image Turbo) on the NVIDIA GPU.
+#   docker compose up -d --build     build + start   (first start downloads ~13 GB into ./hf-cache)
+#   docker compose down              stop
+services:
+  image-gen:
+    build: .
+    image: image-gen:latest
+    container_name: image-gen
+    restart: unless-stopped
+    gpus: all
+    ports:
+      - "8000:8000"
+    env_file: .env            # API_TOKEN (empty = no auth, LAN-only); optional overrides below
+    environment:
+      # bf16 transformer kept on the GPU: ~14 GB, ~2.7 s per 768 px image. Fits next to the GGUF
+      # Breeze TTS (~5 GB). If Breeze runs its PyTorch runtime again (~18 GB), use
+      # DEFAULT_MODEL=z-image-turbo-q3 OFFLOAD=model instead.
+      DEFAULT_MODEL: ${DEFAULT_MODEL:-z-image-turbo-bf16-te4}
+      OFFLOAD: ${OFFLOAD:-none}         # "none": weights stay on the GPU (fast); "model": move them per job (slow, small)
+      MAX_SIDE: ${MAX_SIDE:-1024}
+      JOB_TIMEOUT_SECONDS: ${JOB_TIMEOUT_SECONDS:-120}
+      # Listed by GET /models. Pixel-art LoRA (Apache 2.0); trigger phrase "Pixel art style."
+      LORAS: ${LORAS:-tarn59/pixel_art_style_lora_z_image_turbo}
+    volumes:
+      - ./hf-cache:/hf-cache  # Hugging Face cache: models download once
